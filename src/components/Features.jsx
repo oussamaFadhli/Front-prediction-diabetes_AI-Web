@@ -1,126 +1,132 @@
-export default function Features() {
+import React from "react";
+
+const Testimonials = () => {
   return (
     <>
-      <div className="container my-24 mx-auto md:px-6">
-        <section className="mb-32 text-center">
-          <div className="flex justify-center">
-            <div className="max-w-[700px] text-center">
-              <h2 className="mb-6 text-center text-3xl font-bold">
-                Why is it so
-                <u className="text-primary dark:text-primary-400">great?</u>
-              </h2>
-              <p className="mb-16 text-black dark:text-neutral-300">
-                Minus fuga aliquid vero facere ducimus quos, quisquam nemo?
-                Molestias ullam provident vitae error aliquam dolorum
-                temporibus? Doloremque, quasi
-              </p>
+      <div className="h-screen">
+        <div className="items-center max-w-screen-xl px-4 py-8 mx-auto lg:grid lg:grid-cols-4 lg:gap-16 xl:gap-24 lg:py-24 lg:px-6">
+          <div className="col-span-2 mb-8">
+            <p className="text-lg font-medium text-blue-600 ">
+              Trusted Worldwide
+            </p>
+            <h2 className="mt-3 mb-4 text-3xl font-extrabold tracking-tight text-gray-900 md:text-3xl">
+              Trusted by over 600 million users and 10,000 teams
+            </h2>
+            <p className="font-light text-gray-500 sm:text-xl ">
+              Our rigorous security and compliance standards are at the heart of
+              all we do. We work tirelessly to protect you and your customers.
+            </p>
+            <div className="pt-6 mt-6 space-y-4 border-t border-gray-200 ">
+              <div>
+                <a
+                  href="#"
+                  className="inline-flex items-center text-base font-medium text-blue-600 hover:text-blue-800 "
+                >
+                  Explore Legality Guide
+                  <svg
+                    className="w-5 h-5 ml-1"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+                      clipRule="evenodd"
+                    ></path>
+                  </svg>
+                </a>
+              </div>
+              <div>
+                <a
+                  href="#"
+                  className="inline-flex items-center text-base font-medium text-blue-600 hover:text-blue-600-800 "
+                >
+                  Visit the Trust Center
+                  <svg
+                    className="w-5 h-5 ml-1"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+                      clipRule="evenodd"
+                    ></path>
+                  </svg>
+                </a>
+              </div>
             </div>
           </div>
-
-          <div className="grid gap-x-6 md:grid-cols-2 lg:grid-cols-4 lg:gap-x-12">
-            <div className="mb-12 lg:mb-0">
-              <div className="mb-6 inline-block rounded-full bg-primary-100 p-4 text-primary shadow-sm">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="2"
-                  stroke="currentColor"
-                  className="h-6 w-6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z"
-                  />
-                </svg>
-              </div>
-              <h5 className="mb-4 text-lg font-bold">Support 24/7</h5>
-              <p className="text-black dark:text-neutral-300">
-                Laudantium totam quas cumque pariatur at doloremque hic quos
-                quia eius. Reiciendis optio minus mollitia rerum labore
+          <div className="col-span-2 space-y-8 md:grid md:grid-cols-2 md:gap-12 md:space-y-0">
+            <div>
+              <svg
+                className="w-10 h-10 mb-2 text-blue-600 md:w-12 md:h-12 "
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M2 5a2 2 0 012-2h12a2 2 0 012 2v2a2 2 0 01-2 2H4a2 2 0 01-2-2V5zm14 1a1 1 0 11-2 0 1 1 0 012 0zM2 13a2 2 0 012-2h12a2 2 0 012 2v2a2 2 0 01-2 2H4a2 2 0 01-2-2v-2zm14 1a1 1 0 11-2 0 1 1 0 012 0z"
+                  clipRule="evenodd"
+                ></path>
+              </svg>
+              <h3 className="mb-2 text-2xl font-bold ">99.99% uptime</h3>
+              <p className="font-light text-gray-500 ">
+                For Landwind, with zero maintenance downtime
               </p>
             </div>
-
-            <div className="mb-12 lg:mb-0">
-              <div className="mb-6 inline-block rounded-full bg-primary-100 p-4 text-primary shadow-sm">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="2"
-                  stroke="currentColor"
-                  className="h-6 w-6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z"
-                  />
-                </svg>
-              </div>
-              <h5 className="mb-4 text-lg font-bold">Safe and solid</h5>
-              <p className="text-black dark:text-neutral-300">
-                Eum nostrum fugit numquam, voluptates veniam neque quibusdam
-                ullam aspernatur odio soluta, quisquam dolore animi
+            <div>
+              <svg
+                className="w-10 h-10 mb-2 text-blue-600 md:w-12 md:h-12 "
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"></path>
+              </svg>
+              <h3 className="mb-2 text-2xl font-bold ">600M+ Users</h3>
+              <p className="font-light text-gray-500 ">
+                Trusted by over 600 milion users around the world
               </p>
             </div>
-
-            <div className="mb-12 md:mb-0">
-              <div className="mb-6 inline-block rounded-full bg-primary-100 p-4 text-primary shadow-sm">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="2"
-                  stroke="currentColor"
-                  className="h-6 w-6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12"
-                  />
-                </svg>
-              </div>
-              <h5 className="mb-4 text-lg font-bold">Extremely fast</h5>
-              <p className="text-black dark:text-neutral-300">
-                Enim cupiditate, minus nulla dolor cumque iure eveniet facere
-                ullam beatae hic voluptatibus dolores exercitationem
+            <div>
+              <svg
+                className="w-10 h-10 mb-2 text-blue-600 md:w-12 md:h-12 "
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zM4.332 8.027a6.012 6.012 0 011.912-2.706C6.512 5.73 6.974 6 7.5 6A1.5 1.5 0 019 7.5V8a2 2 0 004 0 2 2 0 011.523-1.943A5.977 5.977 0 0116 10c0 .34-.028.675-.083 1H15a2 2 0 00-2 2v2.197A5.973 5.973 0 0110 16v-2a2 2 0 00-2-2 2 2 0 01-2-2 2 2 0 00-1.668-1.973z"
+                  clipRule="evenodd"
+                ></path>
+              </svg>
+              <h3 className="mb-2 text-2xl font-bold ">100+ countries</h3>
+              <p className="font-light text-gray-500 ">
+                Have used Landwind to create functional websites
               </p>
             </div>
-
-            <div className="mb-12 md:mb-0">
-              <div className="mb-6 inline-block rounded-full bg-primary-100 p-4 text-primary shadow-sm">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="2"
-                  stroke="currentColor"
-                  className="h-6 w-6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M10.5 6a7.5 7.5 0 107.5 7.5h-7.5V6z"
-                  />
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M13.5 10.5H21A7.5 7.5 0 0013.5 3v7.5z"
-                  />
-                </svg>
-              </div>
-              <h5 className="mb-4 text-lg font-bold">Live analytics</h5>
-              <p className="text-black dark:text-neutral-300">
-                Illum doloremque ea, blanditiis sed dolor laborum praesentium
-                maxime sint, consectetur atque ipsum ab adipisci
-              </p>
+            <div>
+              <svg
+                className="w-10 h-10 mb-2 text-blue-600 md:w-12 md:h-12 "
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"></path>
+              </svg>
+              <h3 className="mb-2 text-2xl font-bold ">5+ Million</h3>
+              <p className="font-light text-gray-500 ">Transactions per day</p>
             </div>
           </div>
-        </section>
+        </div>
       </div>
     </>
   );
-}
+};
+
+export default Testimonials;
