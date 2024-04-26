@@ -1,5 +1,6 @@
 import {Routes,Route} from "react-router-dom"
 import {Home} from './pages'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
   return (
