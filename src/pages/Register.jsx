@@ -1,15 +1,38 @@
-import React from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import { Navbar } from "../components";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import { AuthSchema } from "./validations";
+import axiosInstance from "../helpers/axios";
 
 const Register = () => {
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleSubmit = async (values, { setSubmitting }) => {
+    try {
+      await axiosInstance.post("auth/register/", values);
+      setSuccessMessage("Registration successful!");
+      setErrorMessage("");
+    } catch (error) {
+      setSuccessMessage("");
+      setErrorMessage("Registration failed. Please try again.");
+    }
+    setSubmitting(false);
+  };
+
+  const handleChange = (event, setFieldValue) => {
+    const { name, value } = event.target;
+    setFieldValue(name, value);
+  };
+
   return (
     <>
+      <Navbar />
       <section className="relative flex flex-wrap lg:h-screen lg:items-center">
         <div className="w-full px-4 py-12 sm:px-6 sm:py-16 lg:w-1/2 lg:px-8 lg:py-24">
           <div className="mx-auto max-w-lg text-center">
-            <h1 className="text-2xl font-bold sm:text-3xl">
-              Join Us!!!
-            </h1>
+            <h1 className="text-2xl font-bold sm:text-3xl">Join Us</h1>
 
             <p className="mt-4 text-gray-500">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Et libero
@@ -17,91 +40,74 @@ const Register = () => {
             </p>
           </div>
 
-          <form action="#" className="mx-auto mb-0 mt-8 max-w-md space-y-4">
-            <div>
-              <label htmlFor="email" className="sr-only">
-                Email
-              </label>
+          <Formik
+            initialValues={{ email: "", password: "" }}
+            validationSchema={AuthSchema}
+            onSubmit={handleSubmit}
+          >
+            {({ isSubmitting, setFieldValue }) => (
+              <Form className="mx-auto mb-0 mt-8 max-w-md space-y-4">
+                {successMessage && (
+                  <div className="text-green-500">{successMessage}</div>
+                )}
+                {errorMessage && (
+                  <div className="text-red-500">{errorMessage}</div>
+                )}
 
-              <div className="relative">
-                <input
-                  type="email"
-                  className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
-                  placeholder="Enter email"
-                />
+                <div>
+                  <label htmlFor="email" className="sr-only">
+                    Email
+                  </label>
+                  <Field
+                    type="email"
+                    name="email"
+                    placeholder="Enter email"
+                    className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+                  />
+                  <ErrorMessage
+                    name="email"
+                    component="div"
+                    className="text-red-500"
+                  />
+                </div>
 
-                <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="size-4 text-gray-400"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
+                <div>
+                  <label htmlFor="password" className="sr-only">
+                    Password
+                  </label>
+                  <Field
+                    type="password"
+                    name="password"
+                    placeholder="Enter password"
+                    className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+                    onChange={(event) => handleChange(event, setFieldValue)}
+                  />
+                  <ErrorMessage
+                    name="password"
+                    component="div"
+                    className="text-red-500"
+                  />
+                </div>
+
+                <div className="flex items-center justify-between">
+                  <p className="text-sm text-gray-500">
+                    Already have an account?
+                    <Link className="underline text-blue-600" to="/login">
+                      login
+                    </Link>
+                  </p>
+
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="inline-block rounded-lg bg-blue-600 px-5 py-3 text-sm font-medium text-white"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"
-                    />
-                  </svg>
-                </span>
-              </div>
-            </div>
-
-            <div>
-              <label htmlFor="password" className="sr-only">
-                Password
-              </label>
-
-              <div className="relative">
-                <input
-                  type="password"
-                  className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
-                  placeholder="Enter password"
-                />
-
-                <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="size-4 text-gray-400"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                    />
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-                    />
-                  </svg>
-                </span>
-              </div>
-            </div>
-
-            <div className="flex items-center justify-between">
-              <p className="text-sm text-gray-500">
-                Already have an account?
-                <Link className="underline text-blue-600" to="/login">
-                  login
-                </Link>
-              </p>
-
-              <button
-                type="submit"
-                className="inline-block rounded-lg bg-blue-600 px-5 py-3 text-sm font-medium text-white"
-              >
-                Sign up
-              </button>
-            </div>
-          </form>
+                    {isSubmitting ? "Signing up..." : "Sign up"}
+                  </button>
+                </div>
+              </Form>
+            )}
+          </Formik>
         </div>
 
         <div className="relative h-64 w-full sm:h-96 lg:h-full lg:w-1/2">
