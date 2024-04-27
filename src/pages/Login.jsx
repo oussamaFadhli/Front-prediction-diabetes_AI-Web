@@ -5,18 +5,24 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import { AuthSchema } from "../validations";
 import axiosInstance from "../helpers/axios";
 
-const Register = () => {
+const Login = () => {
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
-      await axiosInstance.post("auth/register/", values);
-      setSuccessMessage("Registration successful!");
+      const response = await axiosInstance.post("auth/login/", values);
+      const { access, refresh } = response.data;
+      
+      // Store the tokens in local storage
+      localStorage.setItem("access", access);
+      localStorage.setItem("refresh", refresh);
+  
+      setSuccessMessage("Login successful!");
       setErrorMessage("");
     } catch (error) {
       setSuccessMessage("");
-      setErrorMessage("Registration failed. Please try again.");
+      setErrorMessage("Login failed. Please try again.");
     }
     setSubmitting(false);
   };
@@ -32,7 +38,7 @@ const Register = () => {
       <section className="relative flex flex-wrap lg:h-screen lg:items-center">
         <div className="w-full px-4 py-12 sm:px-6 sm:py-16 lg:w-1/2 lg:px-8 lg:py-24">
           <div className="mx-auto max-w-lg text-center">
-            <h1 className="text-2xl font-bold sm:text-3xl">Join Us</h1>
+            <h1 className="text-2xl font-bold sm:text-3xl">Login</h1>
 
             <p className="mt-4 text-gray-500">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Et libero
@@ -91,9 +97,9 @@ const Register = () => {
 
                 <div className="flex items-center justify-between">
                   <p className="text-sm text-gray-500">
-                    Already have an account?
-                    <Link className="underline text-blue-600" to="/login">
-                      login
+                    Don't have an account?
+                    <Link className="underline text-blue-600" to="/register">
+                      Sign up
                     </Link>
                   </p>
 
@@ -122,4 +128,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Login;

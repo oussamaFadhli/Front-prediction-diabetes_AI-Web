@@ -1,5 +1,5 @@
 import {Routes,Route} from "react-router-dom"
-import {Home, Register} from './pages'
+import {Home, Login, Register} from './pages'
 
 
 const App = () => {
@@ -8,6 +8,7 @@ const App = () => {
       <Routes>
         <Route path ="/" element = {<Home/>}/>
         <Route path='/register' element = {<Register/>}/>
+        <Route path="/login" element={<Login/>}/>
       </Routes>
     </>
   );

@@ -26,7 +26,6 @@ axiosInstance.interceptors.response.use(
   (error) => {
     if (error.response && (error.response.status === 401 || error.response.status === 403)) {
       localStorage.removeItem("access");
-      window.location.href = "/auth/login"; // Redirect to the login page
     } else if (error.response && error.response.status === 500) {
       return Promise.reject(error.response);
     }
