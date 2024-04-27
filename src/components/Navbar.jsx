@@ -8,7 +8,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between text-blue-gray-900">
           <Link
             to="/"
-            className="mr-4 block cursor-pointer text-black py-1.5 font-sans text-base font-medium leading-relaxed text-inherit antialiased"
+            className="mr-4 block bg-blue-600 rounded-2xl px-4 cursor-pointer text-white py-1.5 font-sans text-base font-medium leading-relaxed text-inherit antialiased"
           >
             MediLab
           </Link>

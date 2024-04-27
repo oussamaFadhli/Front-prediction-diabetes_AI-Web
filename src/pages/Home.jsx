@@ -1,7 +1,7 @@
 import React from "react";
 import {
   Navbar,
-  Header,
+  Hero,
   Services,
   Features,
   Gallery,
@@ -13,7 +13,7 @@ const Home = () => {
   return (
     <>
       <Navbar />
-      <Header />
+      <Hero />
       <Services />
       <Gallery />
       <Features />

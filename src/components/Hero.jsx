@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Header = () => {
     return (
       <div className="relative flex flex-col-reverse py-16 lg:pt-0 lg:flex-col lg:pb-0">
@@ -35,19 +37,19 @@ const Header = () => {
               quae. explicabo.
             </p>
             <div className="flex items-center">
-              <a
-                href="/"
-                className="inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+              <Link
+                to="/login"
+                className="inline-flex text-white items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide transition duration-200 rounded-2xl shadow-md bg-blue-600 hover:bg-blue-900 focus:shadow-outline focus:outline-none"
               >
                 Get started
-              </a>
-              <a
-                href="/"
+              </Link>
+              <Link
+                to="#"
                 aria-label=""
                 className="inline-flex items-center font-semibold text-gray-800 transition-colors duration-200 hover:text-deep-purple-accent-700"
               >
                 Learn more
-              </a>
+              </Link>
             </div>
           </div>
         </div>

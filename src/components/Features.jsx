@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 const Testimonials = () => {
   return (
     <>
@@ -18,8 +18,8 @@ const Testimonials = () => {
             </p>
             <div className="pt-6 mt-6 space-y-4 border-t border-gray-200 ">
               <div>
-                <a
-                  href="#"
+                <Link
+                  to="#"
                   className="inline-flex items-center text-base font-medium text-blue-600 hover:text-blue-800 "
                 >
                   Explore Legality Guide
@@ -35,11 +35,11 @@ const Testimonials = () => {
                       clipRule="evenodd"
                     ></path>
                   </svg>
-                </a>
+                </Link>
               </div>
               <div>
-                <a
-                  href="#"
+                <Link
+                  to="#"
                   className="inline-flex items-center text-base font-medium text-blue-600 hover:text-blue-600-800 "
                 >
                   Visit the Trust Center
@@ -55,7 +55,7 @@ const Testimonials = () => {
                       clipRule="evenodd"
                     ></path>
                   </svg>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
