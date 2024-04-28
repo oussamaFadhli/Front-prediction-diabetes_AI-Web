@@ -8,13 +8,13 @@ axiosInstance.interceptors.request.use(
   (config) => {
     let token = localStorage.getItem("access") || "";
     if (token) {
-      config.headers.Authorization = 'Bearer ' + token;
+      config.headers.Authorization = "Bearer " + token;
     }
     return config;
   },
-  error => {
+  (error) => {
     return Promise.reject(error);
-  },
+  }
 );
 
 axiosInstance.interceptors.response.use(
@@ -24,8 +24,13 @@ axiosInstance.interceptors.response.use(
     }
   },
   (error) => {
-    if (error.response && (error.response.status === 401 || error.response.status === 403)) {
+    if (
+      error.response &&
+      (error.response.status === 401 || error.response.status === 403)
+    ) {
       localStorage.removeItem("access");
+      localStorage.removeItem("refresh");
+      window.location.href("/");
     } else if (error.response && error.response.status === 500) {
       return Promise.reject(error.response);
     }

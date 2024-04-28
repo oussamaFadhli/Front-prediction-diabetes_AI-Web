@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import { Navbar } from "../components";
+import { Link, useNavigate } from "react-router-dom"; // Import useNavigate
+import { Navbar, PageTitle } from "../components";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { AuthSchema } from "../validations";
 import axiosInstance from "../helpers/axios";
@@ -8,18 +8,24 @@ import axiosInstance from "../helpers/axios";
 const Login = () => {
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const navigate = useNavigate(); // Access navigate function from React Router
 
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
       const response = await axiosInstance.post("auth/login/", values);
       const { access, refresh } = response.data;
-      
+
       // Store the tokens in local storage
       localStorage.setItem("access", access);
       localStorage.setItem("refresh", refresh);
-  
+
       setSuccessMessage("Login successful!");
       setErrorMessage("");
+
+      if (response.status === 200) {
+        // Navigate to the dashboard page
+        navigate("/dashboard");
+      }
     } catch (error) {
       setSuccessMessage("");
       setErrorMessage("Login failed. Please try again.");
@@ -34,6 +40,8 @@ const Login = () => {
 
   return (
     <>
+      <PageTitle title="Login" />
+
       <Navbar />
       <section className="relative flex flex-wrap lg:h-screen lg:items-center">
         <div className="w-full px-4 py-12 sm:px-6 sm:py-16 lg:w-1/2 lg:px-8 lg:py-24">

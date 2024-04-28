@@ -38,7 +38,7 @@ const Header = () => {
             </p>
             <div className="flex items-center">
               <Link
-                to="/login"
+                to="/register"
                 className="inline-flex text-white items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide transition duration-200 rounded-2xl shadow-md bg-blue-600 hover:bg-blue-900 focus:shadow-outline focus:outline-none"
               >
                 Get started

@@ -1,15 +1,21 @@
-import {Routes,Route} from "react-router-dom"
-import {Home, Login, Register} from './pages'
-
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import { Home, MainDashboard, Login, Register } from "./pages";
+import PrivateRoutes from "./utils/PrivateRoutes";
 
 const App = () => {
   return (
     <>
-      <Routes>
-        <Route path ="/" element = {<Home/>}/>
-        <Route path='/register' element = {<Register/>}/>
-        <Route path="/login" element={<Login/>}/>
-      </Routes>
+    <Routes>
+      <Route element={<Home/>} path="/" exact/>
+      <Route element={<Register/>} path="/register" exact/>
+      <Route element={<Login/>} path="/login" exact/>
+
+
+      <Route element={<PrivateRoutes/>}>
+        <Route element={<MainDashboard/>} path="/dashboard"/>
+      </Route>
+    </Routes>
     </>
   );
 };
