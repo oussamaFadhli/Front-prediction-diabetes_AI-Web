@@ -10,4 +10,13 @@ export const AuthSchema = Yup.object().shape({
         "Password must contain at least one capital letter and one digit"
       ),
   });
+
+  export const PatientProfileSchema = Yup.object().shape({
+    first_name: Yup.string().required("First Name is required"),
+    last_name: Yup.string().required("Last Name is required"),
+    address: Yup.string().required("Address is required"),
+    tel: Yup.string().required("Telephone is required"),
+    birthday: Yup.string().required("Birthday is required"),
+  });
+
   

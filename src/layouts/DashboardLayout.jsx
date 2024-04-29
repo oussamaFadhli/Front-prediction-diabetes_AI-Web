@@ -1,12 +1,12 @@
 // DashboardLayout.js
-import React from 'react';
-import { AsideBar } from '../components';
+import React from "react";
+import { AsideBar } from "../components";
 
 const DashboardLayout = ({ children }) => {
   return (
     <div className="flex h-screen bg-gray-100">
       {/* Sidebar */}
-      <AsideBar/>
+      <AsideBar />
 
       {/* Main Content */}
       <div className="flex-1">
