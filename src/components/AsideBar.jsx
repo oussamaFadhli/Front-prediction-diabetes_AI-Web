@@ -28,10 +28,7 @@ const AsideBar = () => {
           </div>
           <ul className="flex flex-col py-4">
             <li>
-              <Link
-                to="/dashboard"
-                className="sidebar-link"
-              >
+              <Link to="/dashboard" className="sidebar-link">
                 <span className="sidebar-icon">
                   <i className="bx bx-home"></i>
                 </span>
@@ -39,33 +36,50 @@ const AsideBar = () => {
               </Link>
             </li>
             <li>
-              <Link
-                to="/dashboard/profile"
-                className="sidebar-link"
-              >
+              <Link to="/dashboard/profile" className="sidebar-link">
                 <span className="sidebar-icon">
-                  <i className="bx bx-home"></i>
+                  <i className="bx bx-user"></i>{" "}
+                  {/* Changed icon to represent a user */}
                 </span>
                 <span className="sidebar-text">Patient Profile</span>
               </Link>
+              <ul>
+                {" "}
+                {/* Add submenu for patient profile */}
+                <li>
+                  <Link
+                    to="/dashboard/profile/create"
+                    className="sidebar-sublink"
+                  >
+                    Create Patient Profile
+                  </Link>
+                </li>
+              </ul>
             </li>
             <li>
-              <Link
-                to="/dashboard/profile/medicine"
-                className="sidebar-link"
-              >
+              <Link to="/dashboard/profile/medicine" className="sidebar-link">
                 <span className="sidebar-icon">
-                  <i className="bx bx-home"></i>
+                  <i className="bx bx-medical"></i>{" "}
+                  {/* Changed icon to represent medicine */}
                 </span>
                 <span className="sidebar-text">Medicine Profile</span>
               </Link>
+              <ul>
+                {" "}
+                {/* Add submenu for medicine profile */}
+                <li>
+                  <Link
+                    to="/dashboard/profile/medicine/create"
+                    className="sidebar-sublink"
+                  >
+                    Create Medicine Profile
+                  </Link>
+                </li>
+              </ul>
             </li>
             {/* Add other sidebar menu items similarly */}
             <li>
-              <div
-                className="sidebar-link"
-                onClick={handleLogout}
-              >
+              <div className="sidebar-link" onClick={handleLogout}>
                 <span className="sidebar-icon">
                   <i className="bx bx-log-out"></i>
                 </span>

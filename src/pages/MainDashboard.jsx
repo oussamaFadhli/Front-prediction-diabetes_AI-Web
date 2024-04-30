@@ -1,10 +1,7 @@
-import React from 'react'
-import { DashboardLayout } from '../layouts'
-const MainDashboard = () => {
-  return (
-    <DashboardLayout>
-    </DashboardLayout>
-  )
-}
+import { DashboardLayout } from "../layouts";
 
-export default MainDashboard
+const MainDashboard = () => {
+  return <DashboardLayout>{/* Your dashboard content */}</DashboardLayout>;
+};
+
+export default MainDashboard;
