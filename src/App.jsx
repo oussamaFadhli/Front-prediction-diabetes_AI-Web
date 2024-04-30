@@ -7,9 +7,10 @@ import {
   Register,
   PatientProfile,
   MedicineProfile,
+  CreatePatientProfile,
+  CreateMedicineProfile,
 } from "./pages";
 import PrivateRoutes from "./utils/PrivateRoutes";
-import CreatePatientProfile from "./pages/CreatePatientProfile";
 
 const App = () => {
   return (
@@ -31,6 +32,10 @@ const App = () => {
             path="/dashboard/profile/medicine"
           />
         </Route>
+        <Route
+          element={<CreateMedicineProfile />}
+          path="/dashboard/profile/medicine/create"
+        />
       </Routes>
     </>
   );

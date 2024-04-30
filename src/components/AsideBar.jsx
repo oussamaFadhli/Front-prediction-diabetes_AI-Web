@@ -49,6 +49,17 @@ const AsideBar = () => {
                 <span className="sidebar-text">Patient Profile</span>
               </Link>
             </li>
+            <li>
+              <Link
+                to="/dashboard/profile/medicine"
+                className="sidebar-link"
+              >
+                <span className="sidebar-icon">
+                  <i className="bx bx-home"></i>
+                </span>
+                <span className="sidebar-text">Medicine Profile</span>
+              </Link>
+            </li>
             {/* Add other sidebar menu items similarly */}
             <li>
               <div
