@@ -5,37 +5,28 @@ const MainDashbordCards = () => {
   const [userData, setUserData] = useState(null);
 
   useEffect(() => {
-    axiosInstance
-      .get("/predict-diabetes/")
-      .then((response) => {
-        const data = response.data;
-        console.log("Fetched data:", data); // Log fetched data for debugging
-        if (data.length > 0) {
-          const latestData = data[data.length - 1];
+    axiosInstance.get("/predict-diabetes/").then((response) => {
+      const data = response.data;
+      if (data.length > 0) {
+        const latestData = data[data.length - 1];
 
-          // Convert numerical data to strings
-          const convertedData = {
-            ...latestData,
-            glucose: latestData.glucose.toFixed(2),
-            insulin: latestData.insulin.toFixed(2),
-            bmi: latestData.bmi.toFixed(2),
-            prediction_percentage: latestData.prediction_percentage.toFixed(2),
-          };
-          
-          // Set fetched and converted data to state
-          setUserData(convertedData);
-        }
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
+        const convertedData = {
+          ...latestData,
+          glucose: latestData.glucose.toFixed(2),
+          insulin: latestData.insulin.toFixed(2),
+          bmi: latestData.bmi.toFixed(2),
+          prediction_percentage: latestData.prediction_percentage.toFixed(2),
+        };
+
+        setUserData(convertedData);
+      }
+    });
   }, []);
 
   if (!userData) {
     return <div>Loading...</div>;
   }
 
-  // Ensure userData is not null before accessing properties
   const { glucose, insulin, bmi, prediction_percentage } = userData;
 
   return (
@@ -50,6 +41,9 @@ const MainDashbordCards = () => {
               <dd className="mt-1 text-3xl leading-9 font-semibold text-red-600">
                 {prediction_percentage}
               </dd>
+              <p className="text-s text-gray-600">
+                Predicted risk of developing diabetes
+              </p>
             </dl>
           </div>
         </div>
@@ -62,6 +56,9 @@ const MainDashbordCards = () => {
               <dd className="mt-1 text-3xl leading-9 font-semibold text-green-600">
                 {glucose}
               </dd>
+              <p className="text-s text-gray-600">
+                Current blood glucose level
+              </p>
             </dl>
           </div>
         </div>
@@ -74,6 +71,7 @@ const MainDashbordCards = () => {
               <dd className="mt-1 text-3xl leading-9 font-semibold text-yellow-500">
                 {bmi}
               </dd>
+              <p className="text-s text-gray-600">Current body mass index</p>
             </dl>
           </div>
         </div>
@@ -86,6 +84,7 @@ const MainDashbordCards = () => {
               <dd className="mt-1 text-3xl leading-9 font-semibold text-green-600">
                 {insulin}
               </dd>
+              <p className="text-s text-gray-600">Current Insulin</p>
             </dl>
           </div>
         </div>
