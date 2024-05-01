@@ -2,28 +2,41 @@ import React, { useState, useEffect } from "react";
 import axiosInstance from "../helpers/axios";
 
 const MainDashbordCards = () => {
-  // Define state variables to store fetched data
-  const [diabetesRisk, setDiabetesRisk] = useState(null);
-  const [bloodGlucose, setBloodGlucose] = useState(null);
-  const [bmi, setBMI] = useState(null);
-  const [insulin, setInsulin] = useState(null);
+  const [userData, setUserData] = useState(null);
 
   useEffect(() => {
-    // Fetch data from API when component mounts
     axiosInstance
-      .get("predict/")
+      .get("/predict-diabetes/")
       .then((response) => {
         const data = response.data;
-        // Set fetched data to state variables
-        setDiabetesRisk(data.diabetesRisk);
-        setBloodGlucose(data.bloodGlucose);
-        setBMI(data.bmi);
-        setInsulin(data.insulin);
+        console.log("Fetched data:", data); // Log fetched data for debugging
+        if (data.length > 0) {
+          const latestData = data[data.length - 1];
+
+          // Convert numerical data to strings
+          const convertedData = {
+            ...latestData,
+            glucose: latestData.glucose.toFixed(2),
+            insulin: latestData.insulin.toFixed(2),
+            bmi: latestData.bmi.toFixed(2),
+            prediction_percentage: latestData.prediction_percentage.toFixed(2),
+          };
+          
+          // Set fetched and converted data to state
+          setUserData(convertedData);
+        }
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
-  }, []); // Empty dependency array ensures useEffect runs only once on component mount
+  }, []);
+
+  if (!userData) {
+    return <div>Loading...</div>;
+  }
+
+  // Ensure userData is not null before accessing properties
+  const { glucose, insulin, bmi, prediction_percentage } = userData;
 
   return (
     <>
@@ -35,7 +48,7 @@ const MainDashbordCards = () => {
                 Diabetes Risk
               </dt>
               <dd className="mt-1 text-3xl leading-9 font-semibold text-red-600">
-                {diabetesRisk !== null ? `${diabetesRisk}%` : "Loading..."}
+                {prediction_percentage}
               </dd>
             </dl>
           </div>
@@ -47,7 +60,7 @@ const MainDashbordCards = () => {
                 Blood Glucose
               </dt>
               <dd className="mt-1 text-3xl leading-9 font-semibold text-green-600">
-                {bloodGlucose !== null ? `${bloodGlucose}mg` : "Loading..."}
+                {glucose}
               </dd>
             </dl>
           </div>
@@ -59,7 +72,7 @@ const MainDashbordCards = () => {
                 BMI
               </dt>
               <dd className="mt-1 text-3xl leading-9 font-semibold text-yellow-500">
-                {bmi !== null ? bmi : "Loading..."}
+                {bmi}
               </dd>
             </dl>
           </div>
@@ -71,7 +84,7 @@ const MainDashbordCards = () => {
                 Insulin
               </dt>
               <dd className="mt-1 text-3xl leading-9 font-semibold text-green-600">
-                {insulin !== null ? `${insulin}mIU/L` : "Loading..."}
+                {insulin}
               </dd>
             </dl>
           </div>
