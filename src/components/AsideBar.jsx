@@ -104,7 +104,7 @@ const AsideBar = () => {
                 {" "}
                 <li>
                   <Link
-                    to="/dashboard/prediction-diabetes"
+                    to="/dashboard/prediction-diabetes/history"
                     className="sidebar-sublink text-sm text-black no-underline"
                   >
                     Latest Diabetes Risk
