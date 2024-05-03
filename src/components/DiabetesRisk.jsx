@@ -22,10 +22,12 @@ const GlucoseChart = ({ labels, data, options }) => {
   };
 
   return (
-    <div className="w-full lg:w-1/2 xl:w-2/3"> {/* Responsive width */}
-      <div className="aspect-w-4 aspect-h-3"> {/* Aspect ratio container */}
+    <div className='flex items-center justify-center'>
+    <div className="w-full lg:w-1/2 xl:w-2/3"> 
+      <div className="aspect-w-4 aspect-h-3"> 
         <Line data={chartData} options={options} className=" flex justify-center w-full h-full" />
       </div>
+    </div>
     </div>
   );
 };

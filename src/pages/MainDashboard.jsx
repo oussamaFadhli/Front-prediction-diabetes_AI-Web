@@ -3,9 +3,9 @@ import { DashboardLayout } from "../layouts";
 const labels = ['Jan', 'Feb', 'Mar', 'Apr', 'May'];
 const data = [5, 10, 20, 30, 40,50, 60, 70, 80, 90,100];
 const options = {
-  responsive: true, // Makes the chart responsive to screen size changes
+  responsive: true, 
   scales: {
-    y: { // Use 'y' instead of 'yAxes'
+    y: { 
       ticks: {
         beginAtZero: true,
       },

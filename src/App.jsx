@@ -9,6 +9,7 @@ import {
   MedicineProfile,
   CreatePatientProfile,
   CreateMedicineProfile,
+  PredictDiabetes
 } from "./pages";
 import PrivateRoutes from "./utils/PrivateRoutes";
 
@@ -35,6 +36,10 @@ const App = () => {
         <Route
           element={<CreateMedicineProfile />}
           path="/dashboard/profile/medicine/create"
+        />
+        <Route
+          element={<PredictDiabetes />}
+          path="/dashboard/prediction-diabetes"
         />
       </Routes>
     </>

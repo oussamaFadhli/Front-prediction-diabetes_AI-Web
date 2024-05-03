@@ -31,7 +31,7 @@ const MainDashbordCards = () => {
 
   return (
     <>
-      <div className="grid grid-cols-1 gap-5 sm:grid-cols-4 mt-4">
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-4 mt-2 mb-2">
         <div className="bg-white overflow-hidden shadow sm:rounded-lg">
           <div className="px-4 py-5 sm:p-6">
             <dl>

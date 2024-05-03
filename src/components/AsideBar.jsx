@@ -28,20 +28,26 @@ const AsideBar = () => {
           </div>
           <ul className="flex flex-col py-4">
             <li>
-              <Link to="/dashboard" className="sidebar-link">
+              <Link
+                to="/dashboard"
+                className="sidebar-link text-black no-underline"
+              >
                 <span className="sidebar-icon">
                   <i className="bx bx-home"></i>
                 </span>
-                <span className="sidebar-text">Dashboard</span>
+                <span className="sidebar-text text-base">Dashboard</span>
               </Link>
             </li>
             <li>
-              <Link to="/dashboard/profile" className="sidebar-link">
+              <Link
+                to="/dashboard/profile"
+                className="sidebar-link text-black no-underline"
+              >
                 <span className="sidebar-icon">
                   <i className="bx bx-user"></i>{" "}
                   {/* Changed icon to represent a user */}
                 </span>
-                <span className="sidebar-text">Patient Profile</span>
+                <span className="sidebar-text text-base">Patient Profile</span>
               </Link>
               <ul>
                 {" "}
@@ -49,7 +55,7 @@ const AsideBar = () => {
                 <li>
                   <Link
                     to="/dashboard/profile/create"
-                    className="sidebar-sublink"
+                    className="sidebar-sublink text-sm text-black no-underline "
                   >
                     Create Patient Profile
                   </Link>
@@ -57,12 +63,17 @@ const AsideBar = () => {
               </ul>
             </li>
             <li>
-              <Link to="/dashboard/profile/medicine" className="sidebar-link">
+              <Link
+                to="/dashboard/profile/medicine"
+                className="sidebar-link text-black no-underline"
+              >
                 <span className="sidebar-icon">
                   <i className="bx bx-medical"></i>{" "}
                   {/* Changed icon to represent medicine */}
                 </span>
-                <span className="sidebar-text">Medicine Profile</span>
+                <span className="sidebar-text text-base text-black no-underline">
+                  Medicine Profile
+                </span>
               </Link>
               <ul>
                 {" "}
@@ -70,9 +81,33 @@ const AsideBar = () => {
                 <li>
                   <Link
                     to="/dashboard/profile/medicine/create"
-                    className="sidebar-sublink"
+                    className="sidebar-sublink text-sm no-underline text-black"
                   >
                     Create Medicine Profile
+                  </Link>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <Link
+                to="/dashboard/prediction-diabetes"
+                className="sidebar-link text-black no-underline"
+              >
+                <span className="sidebar-icon">
+                  <i className="bx bx-medical"></i>{" "}
+                </span>
+                <span className="sidebar-text text-base text-black no-underline">
+                  Prediction Diabetes Risk
+                </span>
+              </Link>
+              <ul>
+                {" "}
+                <li>
+                  <Link
+                    to="/dashboard/prediction-diabetes"
+                    className="sidebar-sublink text-sm text-black no-underline"
+                  >
+                    Latest Diabetes Risk
                   </Link>
                 </li>
               </ul>
@@ -83,7 +118,7 @@ const AsideBar = () => {
                 <span className="sidebar-icon">
                   <i className="bx bx-log-out"></i>
                 </span>
-                <button className="sidebar-text">Logout</button>
+                <button className="sidebar-text text-base">Logout</button>
               </div>
             </li>
           </ul>
