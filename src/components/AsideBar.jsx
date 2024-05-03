@@ -17,7 +17,7 @@ const AsideBar = () => {
 
   return (
     <>
-      <div className="min-h-screen flex flex-row bg-gray-100">
+      <aside className="min-h-screen flex flex-row bg-gray-100">
         <div
           className={`${
             isOpen ? "block" : "hidden"
@@ -131,7 +131,7 @@ const AsideBar = () => {
             {isOpen ? <p>Open</p> : <p>Closed</p>}
           </button>
         </div>
-      </div>
+      </aside>
     </>
   );
 };
