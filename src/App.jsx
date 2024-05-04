@@ -13,6 +13,7 @@ import {
   DiabetesTablePage,
   PatientListPage,
   CreateEducationPatient,
+  EducationPatientPage
 } from "./pages";
 import PrivateRoutes from "./utils/PrivateRoutes";
 
@@ -55,6 +56,10 @@ const App = () => {
         <Route
           element={<CreateEducationPatient />}
           path="/dashboard/medicine/create-patient-education"
+        />
+        <Route
+          element={<EducationPatientPage />}
+          path="/dashboard/list-education-patient"
         />
       </Routes>
     </>
