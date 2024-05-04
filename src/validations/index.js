@@ -39,3 +39,8 @@ export const PredictDiabetesSchema = Yup.object().shape({
   ),
   age: Yup.number().required("Age is required"),
 });
+export const EducationPatientSchema = Yup.object().shape({
+  user:Yup.number().required("Patient ID is required"),
+  patient_data:Yup.number().required("Diabetes Risk Test ID required"),
+  description:Yup.string().required("Medical description required"),
+})

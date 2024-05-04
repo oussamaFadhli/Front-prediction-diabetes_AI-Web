@@ -3,7 +3,7 @@ import axiosInstance from "../helpers/axios";
 
 const PatientsListTable = () => {
   const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true); // State to track loading status
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -13,7 +13,7 @@ const PatientsListTable = () => {
       } catch (error) {
         if (response.status ===403 || response.status === 401) setLoading(false);
       } finally {
-        setLoading(false); // Set loading to false when data fetching is completed
+        setLoading(false); 
       }
     };
 

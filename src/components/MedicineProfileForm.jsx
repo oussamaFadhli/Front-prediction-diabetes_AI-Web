@@ -182,6 +182,7 @@ const MedicineProfileForm = () => {
               value={profileData.speciality}
               onChange={handleChange}
             >
+              <option value="">Select your speciality</option>
               <option value="IM">Internal Medicine</option>
               <option value="FM">Family Medicine</option>
               <option value="SG">Surgery</option>

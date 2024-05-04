@@ -50,7 +50,6 @@ const AsideBar = () => {
               </Link>
               <ul>
                 {" "}
-
                 <li>
                   <Link
                     to="/dashboard/profile/create"
@@ -75,7 +74,6 @@ const AsideBar = () => {
               </Link>
               <ul>
                 {" "}
-
                 <li>
                   <Link
                     to="/dashboard/profile/medicine/create"
@@ -123,7 +121,31 @@ const AsideBar = () => {
                 </span>
               </Link>
             </li>
-            {/* Add other sidebar menu items similarly */}
+            <li>
+              <Link
+                to="/dashboard/list-education-patient"
+                className="sidebar-link text-black no-underline"
+              >
+                <span className="sidebar-icon">
+                  <i className="bx bx-medical"></i>{" "}
+                </span>
+                <span className="sidebar-text text-base text-black no-underline">
+                  Education Patients
+                </span>
+              </Link>
+              <ul>
+                {" "}
+                <li>
+                  <Link
+                    to="/dashboard/medicine/create-patient-education"
+                    className="sidebar-sublink text-sm text-black no-underline"
+                  >
+                    Create Education Patient
+                  </Link>
+                </li>
+              </ul>
+            </li>
+            <li></li>
             <li>
               <div className="sidebar-link" onClick={handleLogout}>
                 <span className="sidebar-icon">
