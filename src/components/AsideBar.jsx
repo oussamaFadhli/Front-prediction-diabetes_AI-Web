@@ -24,7 +24,7 @@ const AsideBar = () => {
           } md:flex md:flex-col w-56 bg-white rounded-r-3xl overflow-hidden shadow-md`}
         >
           <div className="flex items-center justify-center h-20 bg-blue-600 text-white">
-            <h1 className="text-3xl font-semibold">MediLibAI</h1>
+            <h1 className="text-3xl font-semibold">MediLabAI</h1>
           </div>
           <ul className="flex flex-col py-4">
             <li>
@@ -45,13 +45,12 @@ const AsideBar = () => {
               >
                 <span className="sidebar-icon">
                   <i className="bx bx-user"></i>{" "}
-                  {/* Changed icon to represent a user */}
                 </span>
                 <span className="sidebar-text text-base">Patient Profile</span>
               </Link>
               <ul>
                 {" "}
-                {/* Add submenu for patient profile */}
+
                 <li>
                   <Link
                     to="/dashboard/profile/create"
@@ -69,7 +68,6 @@ const AsideBar = () => {
               >
                 <span className="sidebar-icon">
                   <i className="bx bx-medical"></i>{" "}
-                  {/* Changed icon to represent medicine */}
                 </span>
                 <span className="sidebar-text text-base text-black no-underline">
                   Medicine Profile
@@ -77,7 +75,7 @@ const AsideBar = () => {
               </Link>
               <ul>
                 {" "}
-                {/* Add submenu for medicine profile */}
+
                 <li>
                   <Link
                     to="/dashboard/profile/medicine/create"
@@ -111,6 +109,19 @@ const AsideBar = () => {
                   </Link>
                 </li>
               </ul>
+            </li>
+            <li>
+              <Link
+                to="/dashboard/medicine/patients-risk-list"
+                className="sidebar-link text-black no-underline"
+              >
+                <span className="sidebar-icon">
+                  <i className="bx bx-medical"></i>{" "}
+                </span>
+                <span className="sidebar-text text-base text-black no-underline">
+                  Patients Diabetes List
+                </span>
+              </Link>
             </li>
             {/* Add other sidebar menu items similarly */}
             <li>

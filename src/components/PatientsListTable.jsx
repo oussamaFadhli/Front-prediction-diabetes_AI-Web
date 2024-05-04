@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from "react";
 import axiosInstance from "../helpers/axios";
 
-const DiabetesTable = () => {
+const PatientsListTable = () => {
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true); // State to track loading status
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axiosInstance.get("predict-diabetes/");
+        const response = await axiosInstance.get("/patient-diabetes/");
         setData(response.data);
       } catch (error) {
-        console.error("Error fetching data:", error);
+        if (response.status ===403 || response.status === 401) setLoading(false);
+      } finally {
+        setLoading(false); // Set loading to false when data fetching is completed
       }
     };
 
@@ -26,6 +29,16 @@ const DiabetesTable = () => {
     });
   };
 
+  // Render loading indicator if data is still being fetched
+  if (loading) {
+    return (
+      <div className="container mx-auto">
+        <h2 className="text-2xl font-semibold mb-4">Loading...</h2>
+      </div>
+    );
+  }
+
+  // Render table when data is fetched
   return (
     <div className="container mx-auto">
       <h2 className="text-2xl font-semibold mb-4">Diabetes Data</h2>
@@ -33,15 +46,10 @@ const DiabetesTable = () => {
         <table className="min-w-full bg-white shadow-md rounded my-6">
           <thead className="bg-blue-600 text-white">
             <tr>
-              <th className="py-2 px-6 hidden sm:table-cell">ID</th>
-              <th className="py-2 px-6">Age</th>
-              <th className="py-2 px-6">Glucose</th>
-              <th className="py-2 px-6">Blood Pressure</th>
-              <th className="py-2 px-6">Skin Thickness</th>
-              <th className="py-2 px-6">Insulin</th>
-              <th className="py-2 px-6">BMI</th>
-              <th className="py-2 px-6 hidden sm:table-cell">Diabetes Pedigree Function</th>
-              <th className="py-2 px-6 hidden md:table-cell">Date</th>
+              <th className="py-2 px-6 hidden sm:table-cell">Diabetes Test ID</th>
+              <th className="py-2 px-6">User ID</th>
+              <th className="py-2 px-6">Email</th>
+              <th className="py-2 px-6">Date</th>
               <th className="py-2 px-6">Diabetes Risk</th>
             </tr>
           </thead>
@@ -52,13 +60,8 @@ const DiabetesTable = () => {
                 className="border-b border-gray-200 hover:bg-gray-100"
               >
                 <td className="py-2 px-6 hidden sm:table-cell">{row.id}</td>
-                <td className="py-2 px-6">{row.age}</td>
-                <td className="py-2 px-6">{row.glucose}</td>
-                <td className="py-2 px-6">{row.blood_pressure}</td>
-                <td className="py-2 px-6">{row.skin_thickness}</td>
-                <td className="py-2 px-6">{row.insulin}</td>
-                <td className="py-2 px-6">{row.bmi}</td>
-                <td className="py-2 px-6 hidden sm:table-cell">{row.diabetes_pedigree_function}</td>
+                <td className="py-2 px-6">{row.user.id}</td>
+                <td className="py-2 px-6">{row.user.email}</td>
                 <td className="py-2 px-6 hidden md:table-cell">{formatDate(row.release_date)}</td>
                 <td className="py-2 px-6">{row.prediction_percentage.toFixed(2)}</td>
               </tr>
@@ -70,4 +73,4 @@ const DiabetesTable = () => {
   );
 };
 
-export default DiabetesTable;
+export default PatientsListTable;
