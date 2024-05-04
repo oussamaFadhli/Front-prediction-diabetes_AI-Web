@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import axiosInstance from "../helpers/axios";
 
 const DiabetesTable = () => {
@@ -19,10 +19,10 @@ const DiabetesTable = () => {
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: '2-digit',
-      day: '2-digit'
+    return date.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
     });
   };
 
@@ -47,7 +47,10 @@ const DiabetesTable = () => {
           </thead>
           <tbody className="text-gray-700">
             {data.map((row) => (
-              <tr key={row.id} className="border-b border-gray-200 hover:bg-gray-100">
+              <tr
+                key={row.id}
+                className="border-b border-gray-200 hover:bg-gray-100"
+              >
                 <td className="py-2 px-6">{row.id}</td>
                 <td className="py-2 px-6">{row.age}</td>
                 <td className="py-2 px-6">{row.glucose}</td>
@@ -57,7 +60,9 @@ const DiabetesTable = () => {
                 <td className="py-2 px-6">{row.bmi}</td>
                 <td className="py-2 px-6">{row.diabetes_pedigree_function}</td>
                 <td className="py-2 px-6">{formatDate(row.release_date)}</td>
-                <td className="py-2 px-6">{parseFloat(row.prediction_percentage).toFixed(2)}</td>
+                <td className="py-2 px-6">
+                  {row.prediction_percentage.toFixed(2)}
+                </td>
               </tr>
             ))}
           </tbody>
