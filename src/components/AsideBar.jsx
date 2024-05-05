@@ -130,7 +130,20 @@ const AsideBar = () => {
                   <i className="bx bx-medical"></i>{" "}
                 </span>
                 <span className="sidebar-text text-base text-black no-underline">
-                  Education Patients
+                  My Medical Description
+                </span>
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/dashboard/medicine/list-education-patient"
+                className="sidebar-link text-black no-underline"
+              >
+                <span className="sidebar-icon">
+                  <i className="bx bx-medical"></i>{" "}
+                </span>
+                <span className="sidebar-text text-base text-black no-underline">
+                  Education Patients List
                 </span>
               </Link>
               <ul>

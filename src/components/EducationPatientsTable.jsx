@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axiosInstance from "../helpers/axios";
 
-const EducationPatientTable = () => {
+const EducationPatientTable = ({API,Title}) => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axiosInstance.get("/education-patients/");
+        const response = await axiosInstance.get(API);
         setData(response.data);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -28,7 +28,7 @@ const EducationPatientTable = () => {
 
   return (
     <div className="container mx-auto">
-      <h2 className="text-2xl font-semibold mb-4">Diabetes Data</h2>
+      <h2 className="text-2xl font-semibold mb-4">{Title}</h2>
       <div className="overflow-x-auto">
         <table className="min-w-full bg-white shadow-md rounded my-6">
           <thead className="bg-blue-600 text-white">
