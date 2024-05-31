@@ -1,12 +1,27 @@
 // DashboardLayout.js
-import React from "react";
-import { AsideBar } from "../components";
+import React, { useEffect,useState } from "react";
+import axiosInstance from "../helpers/axios";
+import { DoctorAsideBar,PatientAsideBar } from "../components";
+
+
 
 const DashboardLayout = ({ children }) => {
+  const [isDoctor,setIsDoctor] = useState(false);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axiosInstance.get("user/");
+        if (response.data.is_doctor) setIsDoctor(true);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
   return (
     <div className="flex h-screen bg-gray-100">
-      {/* Sidebar */}
-      <AsideBar />
+     {isDoctor ? <DoctorAsideBar/> : <PatientAsideBar/>}
 
       {/* Main Content */}
       <div className="flex-1">
