@@ -8,10 +8,7 @@ const EducationPatientForm = () => {
 
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
-    await axiosInstance.post(
-        "/create-education-patients/",
-        values
-      );
+      await axiosInstance.post("/create-education-patients/", values);
       setSubmitted(true);
     } catch (error) {
       if (error.response) {
@@ -112,8 +109,7 @@ const EducationPatientForm = () => {
                 >
                   Medical Description
                 </label>
-                <Field
-                  type="text"
+                <textarea
                   name="description"
                   id="description"
                   className="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full"
