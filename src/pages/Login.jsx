@@ -4,10 +4,12 @@ import { Navbar, PageTitle } from "../components";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { AuthSchema } from "../validations";
 import axiosInstance from "../helpers/axios";
+import { FaEye, FaEyeSlash } from "react-icons/fa"; // Import eye icons
 
 const Login = () => {
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [showPassword, setShowPassword] = useState(false); // State to manage password visibility
   const navigate = useNavigate(); // Access navigate function from React Router
 
   const handleSubmit = async (values, { setSubmitting }) => {
@@ -85,17 +87,24 @@ const Login = () => {
                   />
                 </div>
 
-                <div>
+                <div className="relative">
                   <label htmlFor="password" className="sr-only">
                     Password
                   </label>
                   <Field
-                    type="password"
+                    type={showPassword ? "text" : "password"} // Toggle between text and password
                     name="password"
                     placeholder="Enter password"
                     className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
                     onChange={(event) => handleChange(event, setFieldValue)}
                   />
+                  <button
+                    type="button"
+                    className="absolute inset-y-0 right-4 flex items-center"
+                    onClick={() => setShowPassword(!showPassword)} // Toggle password visibility
+                  >
+                    {showPassword ? <FaEyeSlash /> : <FaEye />}
+                  </button>
                   <ErrorMessage
                     name="password"
                     component="div"
@@ -127,7 +136,7 @@ const Login = () => {
         <div className="relative h-64 w-full sm:h-96 lg:h-full lg:w-1/2">
           <img
             alt=""
-            src="src\assets\img\about.jpg"
+            src="src/assets/img/about.jpg"
             className="absolute inset-0 h-full w-full object-cover"
           />
         </div>
