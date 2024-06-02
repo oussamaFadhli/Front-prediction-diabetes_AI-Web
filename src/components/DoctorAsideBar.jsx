@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import axiosInstance from "../helpers/axios";
 
 const DoctorAsideBar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isProfile, setIsProfile] = useState(false);
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -14,6 +16,13 @@ const DoctorAsideBar = () => {
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
   };
+
+  useEffect(() => {
+    axiosInstance.get('medicine/').then((response) => {
+      const data = response.data;
+      if (data) setIsProfile(true);
+    });
+  }, []);
 
   return (
     <>
@@ -30,7 +39,7 @@ const DoctorAsideBar = () => {
             <li className="group">
               <Link
                 to="/dashboard"
-                className="flex items-center px-4 py-2 text-gray-600 hover:bg-gray-100 group-hover:text-blue-600 transition-colors duration-200"
+                className="flex items-center no-underline px-4 py-2 text-gray-600 hover:bg-gray-100 group-hover:text-blue-600 transition-colors duration-200"
               >
                 <span className="mr-3">
                   <i className="bx bx-home text-2xl"></i>
@@ -38,52 +47,35 @@ const DoctorAsideBar = () => {
                 <span className="text-lg font-medium">Dashboard</span>
               </Link>
             </li>
-            <li className="group">
-              <Link
-                to="/dashboard/profile"
-                className="flex items-center px-4 py-2 text-gray-600 hover:bg-gray-100 group-hover:text-blue-600 transition-colors duration-200"
-              >
-                <span className="mr-3">
-                  <i className="bx bx-user text-2xl"></i>
-                </span>
-                <span className="text-lg font-medium">Patient Profile</span>
-              </Link>
-              <ul className="pl-10">
-                <li className="group">
-                  <Link
-                    to="/dashboard/profile/create"
-                    className="flex items-center px-4 py-2 text-gray-500 hover:bg-gray-100 group-hover:text-blue-600 transition-colors duration-200"
-                  >
-                    <span className="text-sm">Create Patient Profile</span>
-                  </Link>
-                </li>
-              </ul>
-            </li>
-            <li className="group">
-              <Link
-                to="/dashboard/profile/medicine"
-                className="flex items-center px-4 py-2 text-gray-600 hover:bg-gray-100 group-hover:text-blue-600 transition-colors duration-200"
-              >
-                <span className="mr-3">
-                  <i className="bx bx-medical text-2xl"></i>
-                </span>
-                <span className="text-lg font-medium">Medicine Profile</span>
-              </Link>
-              <ul className="pl-10">
-                <li className="group">
-                  <Link
-                    to="/dashboard/profile/medicine/create"
-                    className="flex items-center px-4 py-2 text-gray-500 hover:bg-gray-100 group-hover:text-blue-600 transition-colors duration-200"
-                  >
-                    <span className="text-sm">Create Medicine Profile</span>
-                  </Link>
-                </li>
-              </ul>
-            </li>
+            {isProfile ? (
+              <li className="group">
+                <Link
+                  to="/dashboard/profile/medicine"
+                  className="flex items-center px-4 no-underline py-2 text-gray-600 hover:bg-gray-100 group-hover:text-blue-600 transition-colors duration-200"
+                >
+                  <span className="mr-3">
+                    <i className="bx bx-medical text-2xl"></i>
+                  </span>
+                  <span className="text-lg font-medium">Medicine Profile</span>
+                </Link>
+              </li>
+            ) : (
+              <li className="group">
+                <Link
+                  to="/dashboard/profile/medicine/create"
+                  className="flex items-center px-4 no-underline py-2 text-gray-600 hover:bg-gray-100 group-hover:text-blue-600 transition-colors duration-200"
+                >
+                  <span className="mr-3">
+                    <i className="bx bx-medical text-2xl"></i>
+                  </span>
+                  <span className="text-lg font-medium">Create Medicine Profile</span>
+                </Link>
+              </li>
+            )}
             <li className="group">
               <Link
                 to="/dashboard/prediction-diabetes"
-                className="flex items-center px-4 py-2 text-gray-600 hover:bg-gray-100 group-hover:text-blue-600 transition-colors duration-200"
+                className="flex items-center px-4 no-underline py-2 text-gray-600 hover:bg-gray-100 group-hover:text-blue-600 transition-colors duration-200"
               >
                 <span className="mr-3">
                   <i className="bx bx-medical text-2xl"></i>
@@ -94,7 +86,7 @@ const DoctorAsideBar = () => {
                 <li className="group">
                   <Link
                     to="/dashboard/prediction-diabetes/history"
-                    className="flex items-center px-4 py-2 text-gray-500 hover:bg-gray-100 group-hover:text-blue-600 transition-colors duration-200"
+                    className="flex items-center px-4 no-underline py-2 text-gray-500 hover:bg-gray-100 group-hover:text-blue-600 transition-colors duration-200"
                   >
                     <span className="text-sm">Latest Diabetes Risk</span>
                   </Link>
@@ -104,7 +96,7 @@ const DoctorAsideBar = () => {
             <li className="group">
               <Link
                 to="/dashboard/medicine/patients-risk-list"
-                className="flex items-center px-4 py-2 text-gray-600 hover:bg-gray-100 group-hover:text-blue-600 transition-colors duration-200"
+                className="flex items-center no-underline px-4 py-2 text-gray-600 hover:bg-gray-100 group-hover:text-blue-600 transition-colors duration-200"
               >
                 <span className="mr-3">
                   <i className="bx bx-medical text-2xl"></i>
@@ -114,19 +106,8 @@ const DoctorAsideBar = () => {
             </li>
             <li className="group">
               <Link
-                to="/dashboard/list-education-patient"
-                className="flex items-center px-4 py-2 text-gray-600 hover:bg-gray-100 group-hover:text-blue-600 transition-colors duration-200"
-              >
-                <span className="mr-3">
-                  <i className="bx bx-medical text-2xl"></i>
-                </span>
-                <span className="text-lg font-medium">My Medical Description</span>
-              </Link>
-            </li>
-            <li className="group">
-              <Link
                 to="/dashboard/medicine/list-education-patient"
-                className="flex items-center px-4 py-2 text-gray-600 hover:bg-gray-100 group-hover:text-blue-600 transition-colors duration-200"
+                className="flex items-center no-underline px-4 py-2 text-gray-600 hover:bg-gray-100 group-hover:text-blue-600 transition-colors duration-200"
               >
                 <span className="mr-3">
                   <i className="bx bx-medical text-2xl"></i>
@@ -137,7 +118,7 @@ const DoctorAsideBar = () => {
                 <li className="group">
                   <Link
                     to="/dashboard/medicine/create-patient-education"
-                    className="flex items-center px-4 py-2 text-gray-500 hover:bg-gray-100 group-hover:text-blue-600 transition-colors duration-200"
+                    className="flex items-center no-underline px-4 py-2 text-gray-500 hover:bg-gray-100 group-hover:text-blue-600 transition-colors duration-200"
                   >
                     <span className="text-sm">Create Education Patient</span>
                   </Link>
@@ -163,9 +144,9 @@ const DoctorAsideBar = () => {
             className="fixed right-4 top-4 z-50 block text-gray-500 hover:text-gray-800 focus:outline-none focus:text-gray-800"
           >
             {isOpen ? (
-              <i className="bx bx-x text-3xl"></i>
+              <p>Open</p>
             ) : (
-              <i className="bx bx-menu text-3xl"></i>
+              <p>Closed</p>
             )}
           </button>
         </div>

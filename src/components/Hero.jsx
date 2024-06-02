@@ -39,14 +39,14 @@ const Header = () => {
             <div className="flex items-center">
               <Link
                 to="/register"
-                className="inline-flex text-white items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide transition duration-200 rounded-2xl shadow-md bg-blue-600 hover:bg-blue-900 focus:shadow-outline focus:outline-none"
+                className="inline-flex no-underline text-white items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide transition duration-200 rounded-2xl shadow-md bg-blue-600 hover:bg-blue-900 focus:shadow-outline focus:outline-none"
               >
                 Get started
               </Link>
               <Link
                 to="#"
                 aria-label=""
-                className="inline-flex items-center font-semibold text-gray-800 transition-colors duration-200 hover:text-deep-purple-accent-700"
+                className="inline-flex no-underline items-center font-semibold text-gray-800 transition-colors duration-200 hover:text-deep-purple-accent-700"
               >
                 Learn more
               </Link>

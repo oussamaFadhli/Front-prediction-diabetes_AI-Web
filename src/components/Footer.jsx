@@ -154,7 +154,7 @@ const Footer = () => {
                     <li>
                       <a
                         href="#"
-                        className="text-gray-700 transition hover:opacity-75"
+                        className="text-gray-700 transition hover:opacity-75 no-underline"
                       >
                         {" "}
                         1on1 Coaching{" "}
@@ -164,7 +164,7 @@ const Footer = () => {
                     <li>
                       <a
                         href="#"
-                        className="text-gray-700 transition hover:opacity-75"
+                        className="text-gray-700 transition hover:opacity-75 no-underline"
                       >
                         {" "}
                         Company Review{" "}
@@ -174,7 +174,7 @@ const Footer = () => {
                     <li>
                       <a
                         href="#"
-                        className="text-gray-700 transition hover:opacity-75"
+                        className="text-gray-700 transition hover:opacity-75 no-underline"
                       >
                         {" "}
                         Accounts Review{" "}
@@ -184,7 +184,7 @@ const Footer = () => {
                     <li>
                       <a
                         href="#"
-                        className="text-gray-700 transition hover:opacity-75"
+                        className="text-gray-700 transition hover:opacity-75 no-underline"
                       >
                         {" "}
                         HR Consulting{" "}
@@ -194,7 +194,7 @@ const Footer = () => {
                     <li>
                       <a
                         href="#"
-                        className="text-gray-700 transition hover:opacity-75"
+                        className="text-gray-700 transition hover:opacity-75 no-underline"
                       >
                         {" "}
                         SEO Optimisation{" "}
@@ -210,7 +210,7 @@ const Footer = () => {
                     <li>
                       <a
                         href="#"
-                        className="text-gray-700 transition hover:opacity-75"
+                        className="text-gray-700 transition hover:opacity-75 no-underline"
                       >
                         {" "}
                         About{" "}
@@ -220,7 +220,7 @@ const Footer = () => {
                     <li>
                       <a
                         href="#"
-                        className="text-gray-700 transition hover:opacity-75"
+                        className="text-gray-700 transition hover:opacity-75 no-underline"
                       >
                         {" "}
                         Meet the Team{" "}
@@ -230,7 +230,7 @@ const Footer = () => {
                     <li>
                       <a
                         href="#"
-                        className="text-gray-700 transition hover:opacity-75"
+                        className="text-gray-700 transition hover:opacity-75 no-underline"
                       >
                         {" "}
                         Accounts Review{" "}
@@ -246,7 +246,7 @@ const Footer = () => {
                     <li>
                       <a
                         href="#"
-                        className="text-gray-700 transition hover:opacity-75"
+                        className="text-gray-700 transition hover:opacity-75 no-underline"
                       >
                         {" "}
                         Contact{" "}
@@ -256,7 +256,7 @@ const Footer = () => {
                     <li>
                       <a
                         href="#"
-                        className="text-gray-700 transition hover:opacity-75"
+                        className="text-gray-700 transition hover:opacity-75 no-underline"
                       >
                         {" "}
                         FAQs{" "}
@@ -266,7 +266,7 @@ const Footer = () => {
                     <li>
                       <a
                         href="#"
-                        className="text-gray-700 transition hover:opacity-75"
+                        className="text-gray-700 transition hover:opacity-75 no-underline"
                       >
                         {" "}
                         Live Chat{" "}
@@ -281,7 +281,7 @@ const Footer = () => {
                   <li>
                     <a
                       href="#"
-                      className="text-gray-500 transition hover:opacity-75"
+                      className="text-gray-500 transition hover:opacity-75 no-underline"
                     >
                       {" "}
                       Terms & Conditions{" "}
@@ -291,7 +291,7 @@ const Footer = () => {
                   <li>
                     <a
                       href="#"
-                      className="text-gray-500 transition hover:opacity-75"
+                      className="text-gray-500 transition hover:opacity-75 no-underline"
                     >
                       {" "}
                       Privacy Policy{" "}
@@ -301,7 +301,7 @@ const Footer = () => {
                   <li>
                     <a
                       href="#"
-                      className="text-gray-500 transition hover:opacity-75"
+                      className="text-gray-500 transition hover:opacity-75 no-underline"
                     >
                       {" "}
                       Cookies{" "}
