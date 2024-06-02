@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { IoIosClose } from "react-icons/io";
 import axiosInstance from "../helpers/axios";
 
 const PatientAsideBar = () => {
@@ -68,7 +70,9 @@ const PatientAsideBar = () => {
                   <span className="mr-3">
                     <i className="bx bx-medical text-2xl"></i>
                   </span>
-                  <span className="text-lg font-medium">Create Patient Profile</span>
+                  <span className="text-lg font-medium">
+                    Create Patient Profile
+                  </span>
                 </Link>
               </li>
             )}
@@ -127,7 +131,7 @@ const PatientAsideBar = () => {
             onClick={toggleSidebar}
             className="fixed right-4 top-4 z-50 block text-gray-500 hover:text-gray-800 focus:outline-none focus:text-gray-800"
           >
-            {isOpen ? <p>Open</p> : <p>Closed</p>}
+            {isOpen ? <IoIosClose /> : <GiHamburgerMenu />}
           </button>
         </div>
       </aside>

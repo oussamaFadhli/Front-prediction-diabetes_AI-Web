@@ -4,12 +4,11 @@ import { Navbar } from "../components";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { AuthSchema } from "../validations";
 import axiosInstance from "../helpers/axios";
-import { FaEye, FaEyeSlash } from "react-icons/fa"; // Import eye icons
-
+import { FaEye, FaEyeSlash } from "react-icons/fa"; 
 const Register = () => {
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-  const [showPassword, setShowPassword] = useState(false); // State to manage password visibility
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
@@ -78,7 +77,7 @@ const Register = () => {
                     Password
                   </label>
                   <Field
-                    type={showPassword ? "text" : "password"} // Toggle between text and password
+                    type={showPassword ? "text" : "password"} 
                     name="password"
                     placeholder="Enter password"
                     className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
@@ -87,7 +86,7 @@ const Register = () => {
                   <button
                     type="button"
                     className="absolute inset-y-0 right-4 flex items-center"
-                    onClick={() => setShowPassword(!showPassword)} // Toggle password visibility
+                    onClick={() => setShowPassword(!showPassword)} 
                   >
                     {showPassword ? <FaEyeSlash /> : <FaEye />}
                   </button>

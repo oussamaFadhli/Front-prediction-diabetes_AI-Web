@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { IoIosClose } from "react-icons/io";
 import axiosInstance from "../helpers/axios";
 
 const DoctorAsideBar = () => {
@@ -18,7 +20,7 @@ const DoctorAsideBar = () => {
   };
 
   useEffect(() => {
-    axiosInstance.get('medicine/').then((response) => {
+    axiosInstance.get("medicine/").then((response) => {
       const data = response.data;
       if (data) setIsProfile(true);
     });
@@ -68,7 +70,9 @@ const DoctorAsideBar = () => {
                   <span className="mr-3">
                     <i className="bx bx-medical text-2xl"></i>
                   </span>
-                  <span className="text-lg font-medium">Create Medicine Profile</span>
+                  <span className="text-lg font-medium">
+                    Create Medicine Profile
+                  </span>
                 </Link>
               </li>
             )}
@@ -80,7 +84,9 @@ const DoctorAsideBar = () => {
                 <span className="mr-3">
                   <i className="bx bx-medical text-2xl"></i>
                 </span>
-                <span className="text-lg font-medium">Prediction Diabetes Risk</span>
+                <span className="text-lg font-medium">
+                  Prediction Diabetes Risk
+                </span>
               </Link>
               <ul className="pl-10">
                 <li className="group">
@@ -101,7 +107,9 @@ const DoctorAsideBar = () => {
                 <span className="mr-3">
                   <i className="bx bx-medical text-2xl"></i>
                 </span>
-                <span className="text-lg font-medium">Patients Diabetes List</span>
+                <span className="text-lg font-medium">
+                  Patients Diabetes List
+                </span>
               </Link>
             </li>
             <li className="group">
@@ -112,7 +120,9 @@ const DoctorAsideBar = () => {
                 <span className="mr-3">
                   <i className="bx bx-medical text-2xl"></i>
                 </span>
-                <span className="text-lg font-medium">Education Patients List</span>
+                <span className="text-lg font-medium">
+                  Education Patients List
+                </span>
               </Link>
               <ul className="pl-10">
                 <li className="group">
@@ -143,11 +153,7 @@ const DoctorAsideBar = () => {
             onClick={toggleSidebar}
             className="fixed right-4 top-4 z-50 block text-gray-500 hover:text-gray-800 focus:outline-none focus:text-gray-800"
           >
-            {isOpen ? (
-              <p>Open</p>
-            ) : (
-              <p>Closed</p>
-            )}
+            {isOpen ? <IoIosClose /> : <GiHamburgerMenu />}
           </button>
         </div>
       </aside>
