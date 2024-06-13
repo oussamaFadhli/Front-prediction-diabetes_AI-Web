@@ -5,13 +5,17 @@ import axiosInstance from "../helpers/axios";
 
 const PredictDiabetesForm = () => {
   const [submitted, setSubmitted] = useState(false);
+  const [diabetesPourcentage, setDiabetesPourcentage] = useState(null);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
       const response = await axiosInstance.post("predict-diabetes/", values);
-      console.log("API response:", response.data);
+      setDiabetesPourcentage(response.data.prediction_percentage);
       setSubmitted(true);
+      setErrorMessage("");
     } catch (error) {
+      setErrorMessage("Error: Unable to submit the form. Please try again later.");
       console.error("Error:", error);
     } finally {
       setSubmitting(false);
@@ -25,15 +29,25 @@ const PredictDiabetesForm = () => {
 
   return (
     <div className="p-8 rounded border border-gray-200">
-      <h1 className="font-medium text-3xl">Prediction Diabetes Risk</h1>
+      <div className="flex items-center justify-between">
+        <h1 className="font-medium text-3xl">Prediction Diabetes Risk</h1>
+        {diabetesPourcentage !== null && (
+          <h1>{diabetesPourcentage}%</h1>
+        )}
+      </div>
       <p className="text-gray-600 mt-6">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos
-        dolorem vel cupiditate laudantium dicta.
+        Veuillez entrer vos données physiologiques
       </p>
       {submitted && (
         <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
           <strong className="font-bold">Success!</strong>
           <span className="block sm:inline"> Your form has been submitted successfully.</span>
+        </div>
+      )}
+      {errorMessage && (
+        <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+          <strong className="font-bold">Error!</strong>
+          <span className="block sm:inline"> {errorMessage}</span>
         </div>
       )}
       <Formik
@@ -54,10 +68,7 @@ const PredictDiabetesForm = () => {
           <Form>
             <div className="mt-8 space-y-6">
               <div>
-                <label
-                  htmlFor="pregnancies"
-                  className="text-sm text-gray-700 block mb-1 font-medium"
-                >
+                <label htmlFor="pregnancies" className="text-sm text-gray-700 block mb-1 font-medium">
                   Pregnancies
                 </label>
                 <Field
@@ -68,17 +79,10 @@ const PredictDiabetesForm = () => {
                   placeholder="Enter your pregnancies value"
                   onChange={(event) => handleChange(event, setFieldValue)}
                 />
-                <ErrorMessage
-                  name="pregnancies"
-                  component="div"
-                  className="text-red-500"
-                />
+                <ErrorMessage name="pregnancies" component="div" className="text-red-500" />
               </div>
               <div>
-                <label
-                  htmlFor="glucose"
-                  className="text-sm text-gray-700 block mb-1 font-medium"
-                >
+                <label htmlFor="glucose" className="text-sm text-gray-700 block mb-1 font-medium">
                   Glucose
                 </label>
                 <Field
@@ -89,17 +93,10 @@ const PredictDiabetesForm = () => {
                   placeholder="Enter your glucose value"
                   onChange={(event) => handleChange(event, setFieldValue)}
                 />
-                <ErrorMessage
-                  name="glucose"
-                  component="div"
-                  className="text-red-500"
-                />
+                <ErrorMessage name="glucose" component="div" className="text-red-500" />
               </div>
               <div>
-                <label
-                  htmlFor="blood_pressure"
-                  className="text-sm text-gray-700 block mb-1 font-medium"
-                >
+                <label htmlFor="blood_pressure" className="text-sm text-gray-700 block mb-1 font-medium">
                   Blood Pressure
                 </label>
                 <Field
@@ -110,17 +107,10 @@ const PredictDiabetesForm = () => {
                   placeholder="Enter your blood pressure value"
                   onChange={(event) => handleChange(event, setFieldValue)}
                 />
-                <ErrorMessage
-                  name="blood_pressure"
-                  component="div"
-                  className="text-red-500"
-                />
+                <ErrorMessage name="blood_pressure" component="div" className="text-red-500" />
               </div>
               <div>
-                <label
-                  htmlFor="skin_thickness"
-                  className="text-sm text-gray-700 block mb-1 font-medium"
-                >
+                <label htmlFor="skin_thickness" className="text-sm text-gray-700 block mb-1 font-medium">
                   Skin Thickness
                 </label>
                 <Field
@@ -131,17 +121,10 @@ const PredictDiabetesForm = () => {
                   placeholder="Enter your skin thickness value"
                   onChange={(event) => handleChange(event, setFieldValue)}
                 />
-                <ErrorMessage
-                  name="skin_thickness"
-                  component="div"
-                  className="text-red-500"
-                />
+                <ErrorMessage name="skin_thickness" component="div" className="text-red-500" />
               </div>
               <div>
-                <label
-                  htmlFor="insulin"
-                  className="text-sm text-gray-700 block mb-1 font-medium"
-                >
+                <label htmlFor="insulin" className="text-sm text-gray-700 block mb-1 font-medium">
                   Insulin
                 </label>
                 <Field
@@ -152,17 +135,10 @@ const PredictDiabetesForm = () => {
                   placeholder="Enter your insulin value"
                   onChange={(event) => handleChange(event, setFieldValue)}
                 />
-                <ErrorMessage
-                  name="insulin"
-                  component="div"
-                  className="text-red-500"
-                />
+                <ErrorMessage name="insulin" component="div" className="text-red-500" />
               </div>
               <div>
-                <label
-                  htmlFor="bmi"
-                  className="text-sm text-gray-700 block mb-1 font-medium"
-                >
+                <label htmlFor="bmi" className="text-sm text-gray-700 block mb-1 font-medium">
                   BMI
                 </label>
                 <Field
@@ -173,17 +149,10 @@ const PredictDiabetesForm = () => {
                   placeholder="Enter your bmi"
                   onChange={(event) => handleChange(event, setFieldValue)}
                 />
-                <ErrorMessage
-                  name="bmi"
-                  component="div"
-                  className="text-red-500"
-                />
+                <ErrorMessage name="bmi" component="div" className="text-red-500" />
               </div>
               <div>
-                <label
-                  htmlFor="diabetes_pedigree_function"
-                  className="text-sm text-gray-700 block mb-1 font-medium"
-                >
+                <label htmlFor="diabetes_pedigree_function" className="text-sm text-gray-700 block mb-1 font-medium">
                   Diabetes Pedigree Function
                 </label>
                 <Field
@@ -194,17 +163,10 @@ const PredictDiabetesForm = () => {
                   placeholder="Enter your diabetes pedigree function value"
                   onChange={(event) => handleChange(event, setFieldValue)}
                 />
-                <ErrorMessage
-                  name="diabetes_pedigree_function"
-                  component="div"
-                  className="text-red-500"
-                />
+                <ErrorMessage name="diabetes_pedigree_function" component="div" className="text-red-500" />
               </div>
               <div>
-                <label
-                  htmlFor="age"
-                  className="text-sm text-gray-700 block mb-1 font-medium"
-                >
+                <label htmlFor="age" className="text-sm text-gray-700 block mb-1 font-medium">
                   Age
                 </label>
                 <Field
@@ -215,11 +177,7 @@ const PredictDiabetesForm = () => {
                   placeholder="Enter your age"
                   onChange={(event) => handleChange(event, setFieldValue)}
                 />
-                <ErrorMessage
-                  name="age"
-                  component="div"
-                  className="text-red-500"
-                />
+                <ErrorMessage name="age" component="div" className="text-red-500" />
               </div>
             </div>
 

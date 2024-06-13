@@ -4,7 +4,7 @@ import { Navbar } from "../components";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { AuthSchema } from "../validations";
 import axiosInstance from "../helpers/axios";
-import { FaEye, FaEyeSlash } from "react-icons/fa"; 
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 const Register = () => {
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -36,8 +36,8 @@ const Register = () => {
             <h1 className="text-2xl font-bold sm:text-3xl">Join Us</h1>
 
             <p className="mt-4 text-gray-500">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Et libero
-              nulla eaque error neque ipsa culpa autem, at itaque nostrum!
+              Rejoignez-nous dès maintenant pour une prise en charge proactive
+              de votre santé et un meilleur contrôle de cette maladie chronique.
             </p>
           </div>
 
@@ -77,7 +77,7 @@ const Register = () => {
                     Password
                   </label>
                   <Field
-                    type={showPassword ? "text" : "password"} 
+                    type={showPassword ? "text" : "password"}
                     name="password"
                     placeholder="Enter password"
                     className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
@@ -86,7 +86,7 @@ const Register = () => {
                   <button
                     type="button"
                     className="absolute inset-y-0 right-4 flex items-center"
-                    onClick={() => setShowPassword(!showPassword)} 
+                    onClick={() => setShowPassword(!showPassword)}
                   >
                     {showPassword ? <FaEyeSlash /> : <FaEye />}
                   </button>

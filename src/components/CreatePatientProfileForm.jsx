@@ -54,8 +54,7 @@ const CreatePatientProfileForm = () => {
     <div className="p-8 rounded border border-gray-200">
       <h1 className="font-medium text-3xl">Profile</h1>
       <p className="text-gray-600 mt-6">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos
-        dolorem vel cupiditate laudantium dicta.
+      Créer votre profil personnalisé et bénéficier de nos services de suivi médical.
       </p>
 
       <form onSubmit={handleSubmit}>

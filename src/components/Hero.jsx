@@ -32,9 +32,7 @@ const Header = () => {
               </span>
             </h2>
             <p className="pr-5 mb-5 text-base text-gray-700 md:text-lg">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-              quae. explicabo.
+            Donner les moyens aux soins de santé grâce à l'intelligence artificielle
             </p>
             <div className="flex items-center">
               <Link

@@ -51,8 +51,8 @@ const Login = () => {
             <h1 className="text-2xl font-bold sm:text-3xl">Login</h1>
 
             <p className="mt-4 text-gray-500">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Et libero
-              nulla eaque error neque ipsa culpa autem, at itaque nostrum!
+              Rejoignez-nous dès maintenant pour une prise en charge proactive
+              de votre santé et un meilleur contrôle de cette maladie chronique.
             </p>
           </div>
 

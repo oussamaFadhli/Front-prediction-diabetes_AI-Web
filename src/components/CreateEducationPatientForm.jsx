@@ -31,10 +31,9 @@ const EducationPatientForm = () => {
 
   return (
     <div className="p-8 rounded border border-gray-200">
-      <h1 className="font-medium text-3xl">Create education patient</h1>
+      <h1 className="font-medium text-3xl">Write medical description</h1>
       <p className="text-gray-600 mt-6">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos
-        dolorem vel cupiditate laudantium dicta.
+      Merci de saisir de manière précise les informations médicales requises.
       </p>
       {submitted && (
         <div
